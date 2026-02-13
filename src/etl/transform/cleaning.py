@@ -87,3 +87,31 @@ def remove_duplicates(df):
     return df
 
 #########################################################################################
+
+def drop_rows_with_nulls(df, subset=[]):
+    """
+    Drop NaN rows
+    
+    :param df: DataFrame
+    """
+    
+    df = df.copy()
+    
+    return df.dropna(subset= subset, how='any')
+
+#########################################################################################
+
+def fill_missing_zipcode(df):
+    """
+    Fill missing values in customer_zipcode with 'Unknown'
+    
+    :param df: Description
+    """
+    
+    df = df.copy()
+    
+    df['customer_zipcode'] = df['customer_zipcode'].fillna("Unknown")
+    
+    return df
+
+#########################################################################################
