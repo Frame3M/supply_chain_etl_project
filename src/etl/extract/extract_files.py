@@ -1,5 +1,7 @@
 import pandas as pd
 
+#########################################################################################
+
 def extract_from_csv(path, enconding='utf-8'):
     """
     Function for extracting data from a CSV file
@@ -13,3 +15,5 @@ def extract_from_csv(path, enconding='utf-8'):
         return df
     except:
         raise
+    
+#########################################################################################
