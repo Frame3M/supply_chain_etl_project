@@ -15,7 +15,14 @@ def save_to_csv(df, save_path, index=False):
     :param index: (True/False)
     """
     
-    os.makedirs(os.path.dirname(save_path), exist_ok=True)
-    df.to_csv(save_path, index=index)
+    logger.info(f"Saving CSV file: {save_path}")
+    
+    try:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        df.to_csv(save_path, index=index)
+        logger.info(f"Successfully saved file: {save_path}")
+    
+    except Exception as e:
+        logger.warning(f"Error saving CSV file {save_path}: {e}", exc_info=True)
     
 #########################################################################################
