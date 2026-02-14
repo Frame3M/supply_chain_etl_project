@@ -28,3 +28,22 @@ def validate_not_null(df, columns):
     for col in columns:
         if df[col].isnull().sum() > 0:
             raise
+        
+#########################################################################################
+
+def validate_not_future_date(df):
+    today = pd.Timestamp.now().normalize()
+    
+    columns = df.select_dtypes('datetime64').columns
+    for col in columns:
+        if (df[col] > today).any():
+            raise
+
+#########################################################################################
+        
+def validate_item_quantity_not_zero(df):
+    if (df['order_item_quantity'] == 0).any():
+        raise
+    
+#########################################################################################
+
