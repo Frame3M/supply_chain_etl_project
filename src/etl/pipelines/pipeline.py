@@ -3,12 +3,19 @@ from etl.transform.normalize import standarize_columns
 from etl.transform.cleaning import clean_strings, fix_dtypes, remove_duplicates, drop_rows_with_nulls, fill_missing_zipcode
 from etl.transform.validate import validate_non_negative_columns, validate_date_order, validate_not_null, validate_not_future_date, validate_item_quantity_not_zero
 from etl.load.save_files import save_to_csv
+from utils.logger import log_header, get_logger
+
+logger = get_logger(__name__)
 
 def run_pipeline():
     """
     Orchestrates all ETL stages.
     Each step logs its execution and allows failures to be isolated by stage
     """
+    
+    #
+    log_header(logger)
+    logger.info("Pipeline Start")
     
     # Extract data
     df_raw = extract_from_csv(path= '../../../data/raw/supply_chain_raw.csv', enconding= 'cp1252')

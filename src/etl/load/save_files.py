@@ -1,5 +1,10 @@
 import pandas as pd
 import os
+from utils.logger import get_logger
+
+logger = get_logger(__name__)
+
+#########################################################################################
 
 def save_to_csv(df, save_path, index=False):
     """
@@ -13,3 +18,4 @@ def save_to_csv(df, save_path, index=False):
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     df.to_csv(save_path, index=index)
     
+#########################################################################################
