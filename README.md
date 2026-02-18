@@ -1,4 +1,5 @@
 # Supply Chain ETL Pipeline
+![Status](https://img.shields.io/badge/STATUS-EN_DESARROLLO-yellow?style=for-the-badge)
 
 Pipeline ETL construido en Python para procesar un dataset de Supply Chain.  
 El proyecto sigue una arquitectura clásica **Bronze → Silver → Gold**, utilizando **Pandas** para las transformaciones y preparando las tablas Gold
